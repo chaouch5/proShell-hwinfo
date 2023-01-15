@@ -2,7 +2,7 @@
 
 sujet()
 {
-figlet Khalil_Wassim
+figlet Khalil
 
     echo -e "***********************************************************************************************"
 
@@ -53,14 +53,24 @@ Lspci()
 
 saveH()
 {   
-  
+    echo "*******************************************************************" >> /home/chaouch/Desktop/save/hwinfo.txt
+    sudo date >> /home/chaouch/Desktop/save/hwinfo.txt
+    echo "*******************************************************************" >> /home/chaouch/Desktop/save/hwinfo.txt
+        hwinfo --short >> /home/chaouch/Desktop/save/hwinfo.txt
+    echo "*******************************************************************" >> /home/chaouch/Desktop/save/hwinfo.txt
+    echo "enregister avec succès"
 }
 
 
 
 saveL()
 {   
-    
+    echo "*******************************************************************" >> /home/chaouch/Desktop/save/lspci.txt
+    sudo date >> /home/chaouch/Desktop/save/lspci.txt
+    echo "*******************************************************************" >> /home/chaouch/Desktop/save/lspci.txt
+        lspci | grep -v "Signal processing controller:" >> /home/chaouch/Desktop/save/lspci.txt
+    echo "*******************************************************************" >> /home/chaouch/Desktop/save/lspci.txt
+    echo "enregister avec succès"
 }
 
 
@@ -68,21 +78,29 @@ saveL()
 version()
 {
 
-  
+    echo -e "\e[5;33m Auteur: Mohamed Khalil Chaouch  \e[0m "
+    echo -e "\e[5;34m version:1.1.0\e[0m"
 }
 
 
 
 afficherP()
 {
-   
+    if [ -f $1 ]; then 
+        fichier=$1
+        cat $1
+    else
+        echo "Le fichier n'existe pas"
+    fi
 }
 
 
 
 afficherM()
 {
-   
+    echo "***************************"
+    grep -i $1 $2
+    echo "***************************"
     
 }
 
@@ -90,14 +108,13 @@ afficherM()
 
 helps()
 {
-  
+ 
 }
 
 
 
 helpsyad()
 {
-    
     
 }
 
